@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Día del Bebé Prematuro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-pink': '#F7B9D4',
+              'brand-purple': '#C6C6E8',
+              'brand-yellow': '#FAF3A5',
+              'brand-green': '#D5EBD3',
+              'brand-blue': '#C3E0F4',
+              'brand-text': '#E574A5',
+              'brand-text-dark': '#8E6A5A',
+              'brand-mint': '#D1F2EB',
+              'brand-coral': '#FF8C82',
+            },
+            fontFamily: {
+              'display': ['"Fredoka"', 'sans-serif'],
+              'body': ['"Nunito"', 'sans-serif'],
+            },
+            aspectRatio: {
+              '1': '1 / 1',
+            },
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Nunito', sans-serif;
+        background-color: #FEFAFD;
+        overflow-x: hidden;
+      }
+      .scroll-animate {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .scroll-animate.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+      }
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+       @keyframes confetti-fall {
+        0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+      }
+      .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        animation: confetti-fall 8s linear infinite;
+        opacity: 0;
+      }
+      .party-bg {
+        background-color: #ffffff;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F7B9D4' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm-2-26V0h-2v8h-4v2h4v4h2V10h4V8h-4zM14 8v2h4v4h2V10h4V8h-4V4h-2v4h-4zm-2 26v4h-2v-4h-4v-2h4v-4h2v4h4v2h-4zM6 6h2v2H6V6zm44 44h2v2h-2v-2zM6 52h2v2H6v-2zM52 6h2v2h-2V6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-[#FEFAFD]">
+    <div id="root">
+        <!-- Hero Section -->
+        <section id="hero" class="h-screen w-screen flex flex-col items-center justify-center text-center relative overflow-hidden p-4">
+            <!-- Balloons -->
+             <div class="absolute top-10 left-10 animate-float">
+                 <svg viewBox="0 0 100 120" class="w-24 h-28 text-brand-pink" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="currentColor"/><path d="M50 95 L45 105 L55 105 Z" fill="currentColor"/><path d="M50 105 Q 40 115 50 125" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+             </div>
+             <div class="absolute top-1/4 right-5 animate-float" style="animation-delay: 1s;">
+                 <svg viewBox="0 0 100 120" class="w-28 h-32 text-brand-blue" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="currentColor"/><path d="M50 95 L45 105 L55 105 Z" fill="currentColor"/><path d="M50 105 Q 60 115 50 125" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+             </div>
+             <div class="absolute bottom-1/4 left-5 animate-float" style="animation-delay: 0.5s;">
+                  <svg viewBox="0 0 100 120" class="w-24 h-28 text-brand-yellow" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="currentColor"/><path d="M50 95 L45 105 L55 105 Z" fill="currentColor"/><path d="M50 105 Q 40 115 50 125" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+             </div>
+             <div class="absolute bottom-10 right-10 animate-float" style="animation-delay: 1.5s;">
+                <svg viewBox="0 0 100 120" class="w-32 h-36 text-brand-purple" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="currentColor"/><path d="M50 95 L45 105 L55 105 Z" fill="currentColor"/><path d="M50 105 Q 60 115 50 125" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+             </div>
+             <div class="absolute top-5 left-1/3 animate-float" style="animation-delay: 0.2s;">
+                 <svg viewBox="0 0 100 120" class="w-20 h-24 text-brand-green" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="currentColor"/><path d="M50 95 L45 105 L55 105 Z" fill="currentColor"/><path d="M50 105 Q 60 115 50 125" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+             </div>
+             <div class="absolute top-12 left-2/3 animate-float" style="animation-delay: 1.8s;">
+                 <svg viewBox="0 0 100 120" class="w-28 h-32 text-brand-coral" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="currentColor"/><path d="M50 95 L45 105 L55 105 Z" fill="currentColor"/><path d="M50 105 Q 40 115 50 125" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+             </div>
+             <div class="absolute top-2 left-1/2 animate-float" style="animation-delay: 2.5s;">
+                 <svg viewBox="0 0 100 120" class="w-16 h-20 text-brand-mint" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="currentColor"/><path d="M50 95 L45 105 L55 105 Z" fill="currentColor"/><path d="M50 105 Q 60 115 50 125" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+             </div>
+             <div class="absolute top-1/2 right-12 animate-float" style="animation-delay: 0.8s;">
+                 <svg viewBox="0 0 100 120" class="w-20 h-24 text-brand-yellow" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="currentColor"/><path d="M50 95 L45 105 L55 105 Z" fill="currentColor"/><path d="M50 105 Q 40 115 50 125" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+             </div>
+             <div class="absolute top-2/3 right-2 animate-float" style="animation-delay: 2.2s;">
+                 <svg viewBox="0 0 100 120" class="w-24 h-28 text-brand-pink" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="currentColor"/><path d="M50 95 L45 105 L55 105 Z" fill="currentColor"/><path d="M50 105 Q 60 115 50 125" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+             </div>
+             <div class="absolute top-1/3 right-20 animate-float" style="animation-delay: 0.1s;">
+                 <svg viewBox="0 0 100 120" class="w-16 h-20 text-brand-green" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="currentColor"/><path d="M50 95 L45 105 L55 105 Z" fill="currentColor"/><path d="M50 105 Q 40 115 50 125" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+             </div>
+             <div class="absolute bottom-5 left-1/3 animate-float" style="animation-delay: 1.2s;">
+                 <svg viewBox="0 0 100 120" class="w-24 h-28 text-brand-blue" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="currentColor"/><path d="M50 95 L45 105 L55 105 Z" fill="currentColor"/><path d="M50 105 Q 60 115 50 125" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+             </div>
+             <div class="absolute bottom-16 left-2/3 animate-float" style="animation-delay: 0.4s;">
+                 <svg viewBox="0 0 100 120" class="w-20 h-24 text-brand-mint" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="currentColor"/><path d="M50 95 L45 105 L55 105 Z" fill="currentColor"/><path d="M50 105 Q 40 115 50 125" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+             </div>
+             <div class="absolute bottom-2 left-1/2 animate-float" style="animation-delay: 2.8s;">
+                 <svg viewBox="0 0 100 120" class="w-28 h-32 text-brand-coral" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="currentColor"/><path d="M50 95 L45 105 L55 105 Z" fill="currentColor"/><path d="M50 105 Q 60 115 50 125" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+             </div>
+             <div class="absolute top-1/2 left-12 animate-float" style="animation-delay: 1.6s;">
+                 <svg viewBox="0 0 100 120" class="w-20 h-24 text-brand-purple" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="currentColor"/><path d="M50 95 L45 105 L55 105 Z" fill="currentColor"/><path d="M50 105 Q 40 115 50 125" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+             </div>
+             <div class="absolute top-2/3 left-2 animate-float" style="animation-delay: 0.6s;">
+                 <svg viewBox="0 0 100 120" class="w-28 h-32 text-brand-yellow" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="currentColor"/><path d="M50 95 L45 105 L55 105 Z" fill="currentColor"/><path d="M50 105 Q 60 115 50 125" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+             </div>
+             <div class="absolute top-1/3 left-20 animate-float" style="animation-delay: 2.0s;">
+                 <svg viewBox="0 0 100 120" class="w-16 h-20 text-brand-coral" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="currentColor"/><path d="M50 95 L45 105 L55 105 Z" fill="currentColor"/><path d="M50 105 Q 40 115 50 125" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+             </div>
+            <div class="z-10">
+                <p class="font-display text-2xl sm:text-4xl text-brand-text-dark mb-2">¡Celebremos la vida!</p>
+                <h1 class="font-display text-5xl sm:text-7xl font-medium text-brand-text drop-shadow-md">
+                    DIA MUNDIAL DEL PREMATURO
+                </h1>
+                <div id="countdown" class="mt-8 flex justify-center space-x-2 sm:space-x-4 text-center">
+                    <div class="bg-white/70 backdrop-blur-sm p-3 sm:p-4 rounded-xl shadow-md min-w-[70px] sm:min-w-[90px]">
+                        <span id="days" class="font-display text-3xl sm:text-5xl text-brand-text">00</span>
+                        <span class="block text-xs sm:text-sm font-body text-brand-text-dark">Días</span>
+                    </div>
+                    <div class="bg-white/70 backdrop-blur-sm p-3 sm:p-4 rounded-xl shadow-md min-w-[70px] sm:min-w-[90px]">
+                        <span id="hours" class="font-display text-3xl sm:text-5xl text-brand-text">00</span>
+                        <span class="block text-xs sm:text-sm font-body text-brand-text-dark">Horas</span>
+                    </div>
+                    <div class="bg-white/70 backdrop-blur-sm p-3 sm:p-4 rounded-xl shadow-md min-w-[70px] sm:min-w-[90px]">
+                        <span id="minutes" class="font-display text-3xl sm:text-5xl text-brand-text">00</span>
+                        <span class="block text-xs sm:text-sm font-body text-brand-text-dark">Minutos</span>
+                    </div>
+                    <div class="bg-white/70 backdrop-blur-sm p-3 sm:p-4 rounded-xl shadow-md min-w-[70px] sm:min-w-[90px]">
+                        <span id="seconds" class="font-display text-3xl sm:text-5xl text-brand-text">00</span>
+                        <span class="block text-xs sm:text-sm font-body text-brand-text-dark">Segundos</span>
+                    </div>
+                </div>
+            </div>
+             <div class="absolute bottom-10 text-brand-text-dark font-bold text-lg animate-pulse">
+                <p>Desliza para descubrir</p>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </div>
+             <div id="confetti-container" class="absolute inset-0 pointer-events-none"></div>
+        </section>
+
+        <!-- Main Content -->
+        <main class="container mx-auto max-w-3xl p-4 relative">
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden pb-4 party-bg">
+            <div class="relative z-10">
+              
+              <section class="w-full my-16 p-4 scroll-animate">
+                <div class="flex flex-col sm:flex-row justify-around items-center text-center font-body text-brand-text-dark space-y-8 sm:space-y-0">
+                  <div class="text-xl">
+                    <p class="font-bold text-2xl">Lugar:</p>
+                    <p>Auditorium Hospital IGSS</p>
+                    <p>Quetzaltenango</p>
+                  </div>
+                  <div class="text-xl">
+                    <p class="font-display text-5xl sm:text-6xl text-brand-text">17</p>
+                    <p class="text-2xl">Noviembre 2025</p>
+                  </div>
+                  <div class="text-xl">
+                    <p class="font-bold text-2xl">Hora</p>
+                    <p>9:30 Horas</p>
+                  </div>
+                </div>
+              </section>
+              
+              <section class="w-full bg-brand-green my-8 py-6 px-4 font-body text-brand-text-dark flex justify-center scroll-animate">
+                 <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8">
+                    <svg viewBox="0 0 100 100" class="w-24 h-24 text-brand-pink" xmlns="http://www.w3.org/2000/svg"><g transform="translate(0, -5)"><path d="M 50,5 L 25,95 L 75,95 Z" fill="currentColor"/><circle cx="50" cy="12" r="8" fill="#FAF3A5"/><path d="M 25,95 Q 50,85 75,95" stroke="#8E6A5A" stroke-width="3" fill="none"/><ellipse cx="35" cy="55" rx="5" ry="8" fill="#C3E0F4" transform="rotate(-15, 35, 55)"/><ellipse cx="65" cy="60" rx="5" ry="8" fill="#FF8C82" transform="rotate(15, 65, 60)"/><ellipse cx="50" cy="75" rx="6" ry="9" fill="#D5EBD3"/></g></svg>
+                    <div class="text-center sm:text-left">
+                      <h2 class="text-3xl font-bold">Tendremos:</h2>
+                      <ul class="list-disc list-inside text-xl space-y-1 mt-2">
+                        <li>Globoflexia</li>
+                        <li>Show de payasos</li>
+                        <li>Candy bar</li>
+                      </ul>
+                    </div>
+                    <svg viewBox="0 0 100 100" class="w-24 h-24 text-brand-coral" xmlns="http://www.w3.org/2000/svg"><rect x="15" y="40" width="70" height="50" rx="8" fill="currentColor"/><rect x="10" y="30" width="80" height="15" rx="5" fill="#F7B9D4"/><path d="M 50 30 V 10 C 50 0, 30 0, 30 15 C 30 30, 50 30, 50 30 Z" fill="#F7B9D4"/><path d="M 50 30 V 10 C 50 0, 70 0, 70 15 C 70 30, 50 30, 50 30 Z" fill="#F7B9D4"/><line x1="50" y1="40" x2="50" y2="90" stroke="#FFF" stroke-width="4" stroke-dasharray="10 6"/></svg>
+                 </div>
+              </section>
+
+              <!-- Image Gallery Section -->
+              <section class="w-full my-16 px-4 font-body scroll-animate">
+                <h2 class="text-3xl sm:text-4xl font-display text-brand-text text-center mb-8">Nuestros Pequeños Héroes</h2>
+                <div id="image-gallery" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  <div class="aspect-w-1 aspect-h-1">
+                    <img src="img/Dia-Mundial-del-Nino-Prematuro-1712037160.png" alt="Adorable bebé celebrando con un gorrito de fiesta." class="rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300 w-full h-full object-cover">
+                  </div>
+                  <div class="aspect-w-1 aspect-h-1">
+                    <img src="img/imagenbebe.png" alt="Alegre mamá y su bebé rodeados de globos festivos." class="rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300 w-full h-full object-cover">
+                  </div>
+                  <div class="aspect-w-1 aspect-h-1">
+                    <img src="img/imagen3.png" alt="Diminutos pies de bebé junto a un cupcake de celebración." class="rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300 w-full h-full object-cover">
+                  </div>
+                  <div class="aspect-w-1 aspect-h-1">
+                    <img src="img/imagen4.png" alt="Un par de zapatitos de bebé sobre un fondo festivo y colorido." class="rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300 w-full h-full object-cover">
+                  </div>
+                  <div class="aspect-w-1 aspect-h-1">
+                    <img src="img/imagen5.png" alt="Familia feliz celebrando juntos con alegría." class="rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300 w-full h-full object-cover">
+                  </div>
+                  <div class="aspect-w-1 aspect-h-1">
+                    <img src="img/imagen6.png" alt="Un cartel de 'Bienvenido Bebé' en una fiesta." class="rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300 w-full h-full object-cover">
+                  </div>
+                </div>
+              </section>
+              
+              <section class="w-full flex flex-col items-center my-16 px-4 font-body scroll-animate">
+                <div class="text-center text-brand-text-dark relative w-full max-w-lg">
+                   <div class="absolute -top-20 -left-20 animate-float">
+                      <svg viewBox="0 0 100 120" class="w-32 h-36 text-brand-green" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="currentColor"/><path d="M50 95 L45 105 L55 105 Z" fill="currentColor"/><path d="M50 105 Q 40 115 50 125" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                   </div>
+                   <div class="absolute -top-10 -right-24 animate-float" style="animation-delay: 1s;">
+                        <svg viewBox="0 0 100 100" class="w-28 h-28 text-brand-pink" xmlns="http://www.w3.org/2000/svg"><path d="M85,50 A35,35 0 1,1 15,50 A35,35 0 1,1 85,50" fill="currentColor" /><circle cx="50" cy="50" r="10" fill="#fff" /></svg>
+                        <svg viewBox="0 0 100 100" class="w-20 h-20 text-brand-purple -mt-10 ml-12" xmlns="http://www.w3.org/2000/svg"><polygon points="50,5 61,39 98,39 68,62 79,96 50,75 21,96 32,62 2,39 39,39" fill="currentColor"/></svg>
+                   </div>
+
+                  <h2 class="text-2xl font-bold mb-4">Para confirmar tu asistencia, ten a la mano:</h2>
+                  <div class="space-y-4 text-left inline-block bg-brand-mint p-6 rounded-2xl shadow-md">
+                      <p class="text-lg"><strong>1.</strong> Nombre completo de quien en su momento fue prematuro.</p>
+                      <p class="text-lg"><strong>2.</strong> Nombres de acompañantes (no más de 2 personas).</p>
+                      <p class="text-lg"><strong>3.</strong> Número de celular para agregar a grupo de WhatsApp.</p>
+                  </div>
+                  <a href="https://forms.gle/2ibneRctBQ4TGMBWA" target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex items-center justify-center space-x-3 text-xl font-bold bg-brand-coral text-white rounded-full px-8 py-4 hover:bg-red-500 transition-colors shadow-lg transform hover:scale-105 duration-300 ease-in-out">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                    <span>Registrarse Aquí</span>
+                  </a>
+                </div>
+              </section>
+              
+              <footer class="w-full text-center mt-4 mb-8 px-4 font-body italic text-brand-text-dark scroll-animate">
+                  <p>"La Fe sin ciencia, es coja; la ciencia sin fe, es ciega"</p>
+              </footer>
+            </div>
+          </div>
+        </main>
+        
+        <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden items-center justify-center z-[100] p-4 opacity-0 transition-opacity duration-300 ease-in-out">
+            <div class="relative bg-white p-2 rounded-lg max-w-3xl w-full max-h-full scale-95 transition-transform duration-300 ease-in-out">
+                <button id="modal-close" aria-label="Cerrar imagen" class="absolute -top-3 -right-3 text-white bg-brand-pink rounded-full h-8 w-8 flex items-center justify-center text-2xl font-bold leading-none hover:bg-brand-text z-10">&times;</button>
+                <img id="modal-image" src="" alt="Imagen ampliada" class="w-full h-auto object-contain max-h-[85vh] rounded-md">
+            </div>
+        </div>
+
+        <!-- Audio Element (Hidden) -->
+        <audio id="background-audio" loop preload="auto">
+            <source src="audio1.mp3" type="audio/mpeg">
+            <source src="audio1.ogg" type="audio/ogg">
+            <source src="audio1.wav" type="audio/wav">
+            <!-- Fallback message -->
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+
+        <!-- Audio Control Button -->
+        <div class="fixed bottom-4 right-4 z-50">
+            <button id="music-toggle" class="bg-brand-pink text-white rounded-full p-3 shadow-lg hover:bg-brand-text focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-pink transition-transform transform hover:scale-110" aria-label="Reproducir música">
+                <!-- Play Icon (Default) -->
+                <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <!-- Pause Icon (Hidden by default) -->
+                <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        // Countdown Timer Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const countdownDate = new Date("2025-11-17T09:30:00").getTime();
+
+            const countdownFunction = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
+
+                const daysEl = document.getElementById('days');
+                const hoursEl = document.getElementById('hours');
+                const minutesEl = document.getElementById('minutes');
+                const secondsEl = document.getElementById('seconds');
+                const countdownEl = document.getElementById('countdown');
+
+                if (distance < 0) {
+                    clearInterval(countdownFunction);
+                    if (countdownEl) {
+                       countdownEl.innerHTML = '<h2 class="font-display text-3xl sm:text-4xl text-brand-text bg-white/70 backdrop-blur-sm py-4 px-6 rounded-xl shadow-md">¡La celebración ha comenzado!</h2>';
+                    }
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                if (daysEl) daysEl.innerText = String(days).padStart(2, '0');
+                if (hoursEl) hoursEl.innerText = String(hours).padStart(2, '0');
+                if (minutesEl) minutesEl.innerText = String(minutes).padStart(2, '0');
+                if (secondsEl) secondsEl.innerText = String(seconds).padStart(2, '0');
+
+            }, 1000);
+        });
+
+        // Confetti Logic
+        const confettiContainer = document.getElementById('confetti-container');
+        const confettiColors = ['#F7B9D4', '#C6C6E8', '#FAF3A5', '#D5EBD3', '#C3E0F4', '#FF8C82'];
+        const confettiCount = 50;
+        
+        for (let i = 0; i < confettiCount; i++) {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = `${Math.random() * 100}vw`;
+            confetti.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+            confetti.style.animationDelay = `${Math.random() * 8}s`;
+            confetti.style.width = `${Math.floor(Math.random() * 5) + 8}px`;
+            confetti.style.height = confetti.style.width;
+            confettiContainer.appendChild(confetti);
+        }
+
+        // Audio Player Logic
+        const audio = document.getElementById('background-audio');
+        const toggleButton = document.getElementById('music-toggle');
+        const playIcon = document.getElementById('play-icon');
+        const pauseIcon = document.getElementById('pause-icon');
+
+        let isPlaying = false;
+
+        // Function to toggle play/pause
+        function togglePlayPause() {
+            try {
+                if (isPlaying) {
+                    audio.pause();
+                    playIcon.classList.remove('hidden');
+                    pauseIcon.classList.add('hidden');
+                    toggleButton.setAttribute('aria-label', 'Reproducir música');
+                    isPlaying = false;
+                } else {
+                    // Promise-based play for better error handling
+                    const playPromise = audio.play();
+                    
+                    if (playPromise !== undefined) {
+                        playPromise.then(() => {
+                            playIcon.classList.add('hidden');
+                            pauseIcon.classList.remove('hidden');
+                            toggleButton.setAttribute('aria-label', 'Pausar música');
+                            isPlaying = true;
+                        }).catch((error) => {
+                            console.log('Error al reproducir audio:', error);
+                            // Keep showing play button if playback fails
+                        });
+                    }
+                }
+            } catch (error) {
+                console.log('Error en el control de audio:', error);
+            }
+        }
+
+        // Event listeners for audio
+        audio.addEventListener('ended', () => {
+            // This shouldn't trigger since loop is enabled, but just in case
+            playIcon.classList.remove('hidden');
+            pauseIcon.classList.add('hidden');
+            toggleButton.setAttribute('aria-label', 'Reproducir música');
+            isPlaying = false;
+        });
+
+        audio.addEventListener('pause', () => {
+            playIcon.classList.remove('hidden');
+            pauseIcon.classList.add('hidden');
+            toggleButton.setAttribute('aria-label', 'Reproducir música');
+            isPlaying = false;
+        });
+
+        audio.addEventListener('play', () => {
+            playIcon.classList.add('hidden');
+            pauseIcon.classList.remove('hidden');
+            toggleButton.setAttribute('aria-label', 'Pausar música');
+            isPlaying = true;
+        });
+
+        // Set initial volume
+        audio.volume = 0.5;
+
+        // Button click event
+        toggleButton.addEventListener('click', togglePlayPause);
+
+        // Scroll Animation Logic
+        const animatedElements = document.querySelectorAll('.scroll-animate');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        animatedElements.forEach(el => observer.observe(el));
+
+        // Gallery Modal Logic
+        const gallery = document.getElementById('image-gallery');
+        const modal = document.getElementById('image-modal');
+
+        if (gallery && modal) {
+            const modalContent = modal.querySelector('div.relative');
+            const modalImg = document.getElementById('modal-image');
+            const closeModalBtn = document.getElementById('modal-close');
+
+            if (modalContent && modalImg && closeModalBtn) {
+                const showModal = (imgSrc, imgAlt) => {
+                    modalImg.src = imgSrc;
+                    modalImg.alt = imgAlt;
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                    setTimeout(() => {
+                        modal.classList.remove('opacity-0');
+                        modalContent.classList.remove('scale-95');
+                    }, 20);
+                };
+
+                const hideModal = () => {
+                    modal.classList.add('opacity-0');
+                    modalContent.classList.add('scale-95');
+                    setTimeout(() => {
+                        modal.classList.add('hidden');
+                        modal.classList.remove('flex');
+                        modalImg.src = '';
+                        modalImg.alt = 'Imagen ampliada';
+                    }, 300);
+                };
+                
+                const galleryImages = gallery.querySelectorAll('img');
+                galleryImages.forEach(img => {
+                    img.addEventListener('click', () => showModal(img.src, img.alt));
+                });
+
+                closeModalBtn.addEventListener('click', hideModal);
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) hideModal();
+                });
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                        hideModal();
+                    }
+                });
+            }
+        }
+    </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
